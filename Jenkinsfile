@@ -19,10 +19,10 @@ pipeline {
 				sh 'python hello.py --name=${params.STUDENT_NAME} > result.txt'
 			}
 		}
+		stage("archive") {
+			steps {
+				archiveArtifacts artifacts: 'result.txt'
+			}
+		}
 	}
-	post {
-        always {
-            archiveArtifacts artifacts: 'result.txt'
-        }
-    }
 }
