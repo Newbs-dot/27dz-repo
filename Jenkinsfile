@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage("run") {
 			steps {
-				sh 'python hello.py --name=$params.STUDENT_NAME > result.txt'
+				sh 'python hello.py --name=${params.STUDENT_NAME} > result.txt'
 			}
 		}
 		stage("archive") {
