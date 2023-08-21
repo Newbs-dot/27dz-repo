@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage("run") {
 			steps {
-				sh 'python hello.py --name ${STUDENT_NAME} > result.txt'
+				sh 'PYTHONIOENCODING=utf8 python hello.py --name ${STUDENT_NAME} > result.txt'
 			}
 		}
 		stage("archive") {
