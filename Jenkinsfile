@@ -16,7 +16,8 @@ pipeline {
 		}
 		stage("run") {
 			steps {
-				sh 'python hello.py --name=${params.STUDENT_NAME} > result.txt'
+				MY_VAR = params.STUDENT_NAME 
+				sh 'python hello.py --name=${MY_VAR} > result.txt'
 			}
 		}
 		stage("archive") {
