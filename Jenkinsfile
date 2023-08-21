@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	parameters {
-		string(name: 'STUDENT_NAME', defaultValue: 'MatsulevichMaksim')
+		string name: 'STUDENT_NAME', defaultValue: 'MatsulevichMaksim'
 	}
 	
 	triggers {
@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage("run") {
 			steps {
-				sh 'python hello.py --name ${params.STUDENT_NAME} > result.txt'
+				sh 'python hello.py --name ${STUDENT_NAME} > result.txt'
 			}
 		}
 		stage("archive") {
